@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edge 浏览器下载目录设置</title>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    
+    <style type="text/css">
+        input{
+            outline-style: none ;
+            border-left: 0;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 1px solid #dbdbdb;
+            border-radius: 5px;
+            padding: 13px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: "Microsoft soft";
+            margin: 0 0 20px 5px;
+        }
+
+        input:focus{
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+        }
+
+        input::placeholder {
+            color: #00BFFF;
+        }
+
+        h2 {
+            color: #800000;
+        }
+
+        h4 {
+            color: #1E90FF;
+            margin-left: 5px;
+        }
+
+        .divContainer {
+            padding: 1.5rem;
+            margin-right: 0;
+            margin-left: 0;
+            border-width: 1px;
+            border-radius: .25rem;
+            margin: 1rem -.75rem 0;
+            border: solid #dee2e6;
+        }
+
+        /*表格菜单颜色/左边距*/
+        .dropdown-menu {
+            padding-left: 25px;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            color: #bec1c5;
+        }
+
+        /*表格菜单<li>标签间距*/
+        .dropdown-menu li {
+            padding-bottom: 5px;
+        }
+
+        /*表格菜单宽度*/
+        .bootstrapMenu ul {
+            min-width: 6rem;
+        }
+
+        .table-hover > tbody > tr:hover > td,
+        .table-hover > tbody > tr:hover > th {
+            background-color: #00BFFF;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="margin: 20px 0 0 20px;">
+        <h1 style="color: #FF1493; font-family: Microsoft soft; font-size: 40px;">Edge 浏览器下载路径设置</h1>
+        <h6 style="color: darkgray; margin: -30px 0 0 480px;">ai2soft软件制作</h6>
+    </div>
+    <div style="margin: 50px 0 0 15px">
+        <div>
+            <h5>文件下载路径示例:</h5>
+            <div style="margin-left: 25px; border-bottom: solid 1px #dbdbdb; width: calc(100vw - 60px); display: inline-block;">
+                <span style="color: gray;">{Edge下载设置的目录}</span> / 
+                <span style="color:#FF1493;">{文件类型特定扩展名对应的文件夹<span style="color:#dbdbdb;">[若设置]</span>}</span> / 
+                <span style="color:brown">{域名<span style="color:#dbdbdb;">[若设置]</span>}</span> / 
+                <span style="color:#1E90FF;">{下载文件的文件名}</span>
+                <a style="color: gainsboro; float: right; text-decoration: none;" href="https://ai2soft.cn">home</a>
+                <a style="color: gainsboro; float: right; margin-right: 15px; text-decoration: none;" href="https://github.com/goldli/EdgeDownload.git">github</a>
+            </div>
+        </div>
+        <div class="container-fluid" style="padding-left: 0; margin-top: 25px;">
+            <div class="row" style="width: calc(100vw - 20px)">
+                <div class="col-8">
+                    <h2>文件类型:</h2>
+                    <div style="margin-top: 20px;">
+                        <div class="container" style="margin-left: 24px;">
+                            <div class="overflow-y-auto overflow-x-hidden" style="height: 50%; ">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4>压缩文件</h4>
+                                        <input type="text" autocomplete="off" id="txtCompressed" data-Type="Compressed" style="width: 400px;" placeholder="如：压缩文件 或 Compressed"/>
+                                    </div>
+                                    <div  class="col">
+                                        <h4>扩展名</h4>
+                                        <input type="text" autocomplete="off" id="extCompressed" data-Type="Compressed" style="width: 400px;" placeholder="如：zip;rar;7zip;"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h4>文档</h4>
+                                        <input type="text" autocomplete="off" id="txtDocument" data-Type="Documents" style="width: 400px;" placeholder="如：文档 或 documents"/>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" autocomplete="off" id="extDocument" data-Type="Documents" style="width: 400px; margin-top: 37px;" placeholder="如：doc;docx;xls;xlsx;" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h4>视频</h4>
+                                        <input type="text" autocomplete="off" id="txtVideos" data-Type="Videos" style="width: 400px;" placeholder="如：视频 或 videos"/>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" autocomplete="off" id="extVideos" data-Type="Videos" style="width: 400px; margin-top: 37px;" placeholder="如：mp4;mkv;" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h4>歌曲</h4>
+                                        <input type="text" autocomplete="off" id="txtMusic" data-Type="Music" style="width: 400px;" placeholder="如：歌曲 或 music"/>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" autocomplete="off" id="extMusic" data-Type="Music" style="width: 400px; margin-top: 37px;" placeholder="如：mp3;flac;" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h4>图像</h4>
+                                        <input type="text" autocomplete="off" id="txtImages" data-Type="Images" style="width: 400px;" placeholder="如：图像 或 images"/>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" autocomplete="off" id="extImages" data-Type="Images" style="width: 400px; margin-top: 37px;" placeholder="如：jpg;png;" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h4>其它</h4>
+                                        <input type="text" autocomplete="off" id="txtOthers" data-Type="Others" style="width: 400px;"/>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" autocomplete="off" id="extOthers" data-Type="Others" style="width: 400px; margin-top: 37px;"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <h2>域名:</h2>
+                        <div class="divContainer">
+                            <table id="tbDomains" class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 50px;">#</th>
+                                        <th style="width: 300px;">域名</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">添加域名</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <input type="text" autocomplete="off" class="txt" id="txtNewDomain" style="width: 100%; margin: 14px 0 0 0 ;" placeholder="输入新的域名"/>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            <button id="dlgOk" type="button" class="btn btn-primary">确定</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="scripts/jquery-3.7.1.min.js"></script>
+    <script src="scripts/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="scripts/BootstrapMenu.min.js"></script>
+    <script src="scripts/options.js"></script>
+</body>
+</html>
